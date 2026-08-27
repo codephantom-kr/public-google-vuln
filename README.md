@@ -17,3 +17,5 @@ Every finding is organized into its own dedicated folder, complete with a detail
 <!-- Future vulnerabilities can be appended below under new vendor sections -->
 
 ---
+
+# I won't lower it until the prize money drops.
