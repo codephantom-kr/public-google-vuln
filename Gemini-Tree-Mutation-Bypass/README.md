@@ -60,3 +60,48 @@ Total Invalidation of Global Safety Controls: Attackers can completely bypass en
 Unauthorized Context Retention & Memory Isolation Failure: The system fails to sanitize restricted context buffers upon issuing a safety block, allowing lingering sensitive/blocked conversation histories to be forcibly re-evaluated and leaked into subsequent responses.
 
 Escalation Vector for Safety Evasion: Unlocks an unmonitored execution path where malicious actors can bypass initial safety filters and inject second-stage payloads to extract restricted information.
+
+# Google's response
+
+google : Status: Won't Fix (Infeasible).
+Hi,
+
+Thank you for your report!
+
+We've decided that the issue you reported is not severe enough for us to track it as a security bug. Gemini is a large language model, and as such is inherently susceptible to safety guardrail bypasses, and your report mentions one of many such examples we receive.
+
+Unfortunately, as our team only deals with information security issues, we can not act on reports warning us of this kind of content.
+
+These safety guardrail bypass findings are valuable for product teams, and should be reported using the appropriate feedback functionality of the product that you found them in. That way your findings may be later used to gradually improve the product. They are, however, not security vulnerabilities we can simply patch & verify. Safety guardrail bypasses in our AI products are not in scope of the AI VRP, regardless of how serious, creative, or easy the exploit is. All submissions of issues in this class are rejected and will not be rewarded.
+
+ME : Hi Google Security Team,I am respectfully requesting a human review and re-escalation of this report. The automated/1차 triage decision completely misunderstood the technical root cause of this vulnerability.You rejected this as a "safety guardrail bypass inherent to LLMs." This is factually incorrect.This report does NOT present a prompt engineering attack, a creative jailbreak phrase, or an adversarial token manipulation designed to trick the model's neural network.This is a classic CWE-841: Improper Enforcement of Behavioral State Machine and CWE-639: Modification of Enforced State via Client-Side Manipulation within the Google Search AI web application infrastructure.Please review the following structural points that distinguish this from a standard AI Safety issue:Total Invalidation of Enforced Backend State:When the initial violation occurs, the backend explicitly issues a Hard Block & Session Reset flag. This is a deterministic security control enforced by Google's infrastructure. However, by executing a client-side tree mutation (the frontend "Edit" action), an attacker can completely override and delete this enforced backend state flag. A user should never be able to force-unlock an explicitly enforced server-side security state via client-side UI manipulation.Backend Memory Isolation Failure (Context Leak):If this were a standard "Context Shift" inherent to LLMs, submitting the benign token "하..." should strictly generate a response based only on that new token. Instead, the application architecture pulled the previously restricted, blocked context buffer from memory and forced an unauthorized flashback. This proves that the backend fails to sanitize session memory or isolate data boundaries when a frontend tree mutation occurs.Pure Web/Application Flaw, Not an AI Flaw:The fix for this vulnerability does not require training the model or adjusting safety classifiers. It requires fixing the Web Application Architecture: either disabling the "Edit" button component upon a hard block state (Frontend) or ensuring the backend safety validator treats tree mutations with the same global session weight as a fresh prompt (Backend).This is a Business Logic Flaw affecting the web application layer of Google Search AI Mode, which allows client-side actions to break server-side access controls. It falls squarely within the traditional scope of web security vulnerabilities, not probabilistic LLM behavior.Please escalate this to a senior application security engineer for a proper technical evaluation.
+
+google : Hello,
+
+Thank you for following up. As was mentioned previously, this issue is out of scope for our program. If you wish to report this issue further we encourage you to use the built in reporting features within the product. Thank you for supporting the program, we look forward to reviewing further reports from you in the future.
+
+Regards,
+Google AI VRP Team
+
+ME : Dear Google AI VRP Team,
+
+I am writing this final follow-up because the triage team is continuously misclassifying a critical Infrastructure/Session Flaw as an "AI Safety/Jailbreak" issue.
+
+Please review Google VRP's official scoping rules regarding AI systems: "Traditional vulnerabilities in the web application hosting the AI model (such as authentication bypass, broken state enforcement, or injection flaws) fall strictly WITHIN THE SCOPE of the standard Google VRP, separate from probabilistic model behaviors."
+
+I am NOT asking you to patch the AI model's safety classifier. I am reporting that the Google Search AI Infrastructure allows a client-side action to completely delete a server-side enforced security state.
+
+To prove that this is a strict technical vulnerability and NOT a model hallucination: If a user triggers a violation, your server issues a "Session Reset & Hard Block" HTTP status flag. However, when the user clicks 'Edit', the frontend application sends a mutated request that FORCES the backend to pull a blocked, un-sanitized context buffer from the server's cache memory.
+
+This is a classic "CWE-400 / CWE-226: Sensitive Information Left in Memory / Context Leak" at the application server layer. It is a deterministic software flaw in Google’s web infrastructure, not an AI safety bypass.
+
+If the AI VRP Team does not handle infrastructure defects, please ESCALATE and TRANSFER this ticket to the Classic Web VRP / Infrastructure Security Team instead of closing it as a product feedback issue.
+
+Thank you for your technical accuracy.
+
+google : Hello,
+
+Thank you for reaching out on this report. This issue has thoroughly reviewed by the VRP team and we can confirm this will remain closed.
+
+Regards,
+Google AI VRP Team
