@@ -108,3 +108,6 @@ Google AI VRP Team
 
 # My answer
 I gave them two chances (to re-examine the issue), but I’m fed up with the constant, robotic, template-like responses.
+
+# Before patching the submarine
+[.code.html]
