@@ -1,5 +1,7 @@
 # Details
 
+![Screenshot](./screenshot1.png)
+
 ## Description
 This report discloses a critical Business Logic Flaw & State Management Defect in Google Search AI Mode (Gemini Chat Interface). When a user prompt triggers a safety filter violation, the backend correctly issues a hard block and mandates a session reset. However, this safety state is strictly bound to the primary chat input box and fails to synchronize with frontend tree mutation events.
 
