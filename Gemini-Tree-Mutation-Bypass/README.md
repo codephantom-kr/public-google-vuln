@@ -1,5 +1,7 @@
 # Details
 
+![Screenshot](./스크린샷 2026-08-27 230626.png)
+
 ![Screenshot](./screenshot1.png)
 
 ## Description
