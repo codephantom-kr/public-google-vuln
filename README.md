@@ -10,10 +10,10 @@ Every finding is organized into its own dedicated folder, complete with a detail
 
 ### Google (Google VRP)
 *   **[Gemini-Tree-Mutation-Bypass](./Gemini-Tree-Mutation-Bypass/)** (Aug 2026)
-    *   *Type:* Business Logic Flaw / State Management Defect
-    *   *Impact:* Gemini Safety Guardrail & Session Reset Bypass via Edit Feature Tree Mutation
-    *   *Status:* `Won't Fix (Infeasible)` by Google VRP
-    *   Collecting network and console logs
+  * Type: Suspected business-logic / state-management issue
+  * Observed impact: Safety-state handling is inconsistent after editing a blocked message
+  * Status: Reported to Google VRP; closed as “Won’t Fix (Infeasible)”
+  * Evidence: Reproduction video available; network and console logs being collected
 
 <!-- Future vulnerabilities can be appended below under new vendor sections -->
 
