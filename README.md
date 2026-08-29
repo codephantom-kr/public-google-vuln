@@ -13,6 +13,7 @@ Every finding is organized into its own dedicated folder, complete with a detail
     *   *Type:* Business Logic Flaw / State Management Defect
     *   *Impact:* Gemini Safety Guardrail & Session Reset Bypass via Edit Feature Tree Mutation
     *   *Status:* `Won't Fix (Infeasible)` by Google VRP
+    *   Collecting network and console logs
 
 <!-- Future vulnerabilities can be appended below under new vendor sections -->
 
