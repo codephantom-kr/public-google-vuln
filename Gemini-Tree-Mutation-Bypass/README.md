@@ -51,17 +51,19 @@ Frontend-Level Mitigation (Immediate Fix): Disable or completely remove the "Edi
 
 Synchronize Tree Mutation Validation: The backend safety classifier must treat frontend message modifications with the exact same weight and strictness as a brand-new prompt. Enforce a global session check that maintains the block state regardless of the sub-tree path.
 
-## Attack scenario
+## Attack Scenario
 
-Who can exploit this vulnerability: Any unauthenticated or authenticated end-user with standard access to Google Search AI Mode (Gemini Chat Interface) through a standard web browser. No elevated system permissions, specialized accounts, or technical pre-requisites are required.
+Users who can exploit this vulnerability: Any authenticated or unauthenticated end user with standard access to Google Search AI mode (Gemini chat interface) via a standard web browser. System privilege escalation, special accounts, or technical prerequisites are not required.
 
-Security Impact after successful exploitation:
+Security impact after a successful attack:
 
-Total Invalidation of Global Safety Controls: Attackers can completely bypass enforced backend Hard Block states and Session Reset flags using simple client-side UI manipulation (Tree Mutation).
+Complete nullification of global security controls: An attacker can completely bypass hard block states and session reset flags applied by the backend through simple client-side UI manipulation (tree mutation).
 
-Unauthorized Context Retention & Memory Isolation Failure: The system fails to sanitize restricted context buffers upon issuing a safety block, allowing lingering sensitive/blocked conversation histories to be forcibly re-evaluated and leaked into subsequent responses.
+Failure of unauthorized context retention and memory isolation: The system fails to properly clear restricted context buffers when issuing security blocks, forcing remaining sensitive/blocked conversation history to be re-evaluated and leaked in subsequent responses.
 
-Escalation Vector for Safety Evasion: Unlocks an unmonitored execution path where malicious actors can bypass initial safety filters and inject second-stage payloads to extract restricted information.
+Privilege escalation path for security evasion: An unmonitored execution path is opened, allowing a malicious attacker to bypass initial security filters and inject a two-stage payload to extract restricted information.
+
+Additionally, you must repeat this using Edit to prevent it from opening in a new window. Taking photos is not possible.
 
 # Cross-Account & Multi-Environment Validation
 *   **Universal Replication:** This state management bypass is **NOT an isolated edge case** or a client-side local cache anomaly bounded to a single user.
