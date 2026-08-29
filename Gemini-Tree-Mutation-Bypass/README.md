@@ -119,7 +119,9 @@ I gave them two chances to re-examine the issue, but I’m fed up with the const
 
 Since Google's official stance is that this logic flaw **"is not a security vulnerability"** and remains **"Won't Fix,"** I intend to fully document this entire architectural state bypass and its reproduction steps in a public GitHub repository for the broader web security community to research.
 
-If Google plans to mitigate or silently patch this endpoint in the future, **please notify me beforehand** so I can update the repository status, ensuring the original discovery and timeline are accurately credited.
+Per Google VRP’s own official policy regarding **"Security-beneficial changes,"** if Google eventually decides to mitigate or silently patch this web application endpoint as a result of this report, you are contractually obligated to acknowledge the original discovery. 
+
+Please notify me beforehand if any silent remediation occurs so I can update the repository status and ensure the original discovery timeline is accurately credited.
 
 
 # Before Silent Patch
