@@ -15,3 +15,5 @@ Every finding is organized into its own dedicated folder, complete with a detail
 <!-- Future vulnerabilities can be appended below under new vendor sections -->
 
 ---
+
+# And if this gets patched after I post it, I will treat it as an official patch and make an official inquiry.
